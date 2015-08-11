@@ -1,7 +1,10 @@
 ---
 # tasks file for zabbix-server
+- name: Upgrade All Packages
+  yum: name=* state=latest
+
 - name: Install Policy Coreutils package
-  yum: name=policycoreutils state=present
+  yum: name=policycoreutils state=present update_cache=yes
   when: ansible_selinux.status == "enabled"
 
 - name: Install Zabbix key on rhel 6
@@ -48,6 +51,9 @@
   template: src=zabbix.conf2.php.j2 dest=/etc/zabbix/web/zabbix.conf.php
   when: zbx_server_Webserver == 1 and zbx_server_PostgreSQL == 1
 
+- name: Change Zabbix Server Config
+  template: src=zabbix_server.conf.j2 dest=/etc/zabbix/zabbix_server.conf
+  
 - name: Install PostgreSQL Database
   include: postgresql.yml
   when: zbx_server_PostgreSQL == 1
@@ -83,11 +89,18 @@
     - restart iptables
   when: ansible_distribution_major_version == '6'
 
+- name: Ensure Firewalld is running
+  service:
+    name=firewalld
+    state=started
+  when: ansible_distribution_major_version == '7'
+
 - name: Open the Firewalld port 10051/tcp on Zabbix-server
   firewalld: port={{ item }} permanent=true state=enabled
   when: ansible_distribution_major_version == '7'
   with_items:
     - 10051/tcp
+    - 80/tcp
     - 10051/udp
 
 - name: Reload firewalld config

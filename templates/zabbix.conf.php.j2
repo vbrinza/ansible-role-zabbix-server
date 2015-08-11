@@ -3,7 +3,7 @@
 global $DB;
 
 $DB['TYPE']     = 'MYSQL';
-{% if zbx_server_DBHost %}}
+{% if zbx_server_DBHost %}
 $DB['SERVER']   = '{{zbx_server_DBHost}}';
 {% else %}
 $DB['SERVER'] = 'localhost';
