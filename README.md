@@ -1,5 +1,6 @@
 Zabbix Server
 =============
+To be reviewed
 
 This playbook will install the Zabbix Server
 
@@ -11,11 +12,12 @@ This playbook will install the Zabbix Server
 
 Version
 -------
-12/11/2014
+11/08/2015
 
 
 Requirements
 ------------
+To be reviewed
 
 At this moment the script only works on Redhat/Centos 6.x or Redhat/Centos 7.x
 This script works with PostgreSQL and MySQL
@@ -24,6 +26,9 @@ Mysql will create a Database Postgresql expects the Db to be there (todo)
 
 Role Variables
 --------------
+
+To be reviewed
+
 All variables can be altered in the defaults directory.
 
 * httpd.yml
@@ -45,6 +50,7 @@ Example Playbook
 
 Dependencies
 ------------
+To be reviewed
 
 * Database like mysql or postgresql needs to be installed seperate
 * Apache or another webserver needs to be installed seperate
