@@ -90,7 +90,7 @@ zbx_server_AllowRoot: 0                                          # Allow the ser
 zbx_server_Include: []                                           # You may include individual files or all files in a directory in the configuration file
 #                - Include=/usr/local/etc/zabbix_server.general.conf
 #                - Include=/usr/local/etc/zabbix_server.conf.d/
-
+zbx_send_auth_email_alerts: 1                                    # When you want Zabbix send authenticated mail alerts
 
 ####### LOADABLE MODULES #######
 
