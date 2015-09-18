@@ -67,7 +67,7 @@
   when: ansible_selinux.status == "enabled"
 
 - name: Enable Zabbix SMTP authenticated mail alerts sending
-  template: src=zabbix-alert-smtp.sh.j2 dest={{ zbx_server_AlertScriptsPath }}/zabbix-alert-smtp.sh
+  template: src=zabbix-alert-smtp.sh.j2 dest={{ zbx_server_AlertScriptsPath }}/zabbix-alert-smtp.sh owner=zabbix group=zabbix mode="u+rwx"
   when: zbx_send_auth_email_alerts == 1
 
 
