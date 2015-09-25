@@ -7,7 +7,8 @@ zbx_php_upload_max_filesize: 2M
 zbx_php_max_input_time: 300
 zbx_php_timezone: Europe/Bucharest
 
-# default vars for zabbix database
-zbx_dbname: zabbix
-zbx_user: zabbix
-zbx_passwd: zabbix
+# default vars for mail alert sending
+mailAccount: user@company.com
+mailPassword: password
+smtpServer: mail.company.com
+smtpPort: 25

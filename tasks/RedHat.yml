@@ -70,7 +70,6 @@
   template: src=zabbix-alert-smtp.sh.j2 dest={{ zbx_server_AlertScriptsPath }}/zabbix-alert-smtp.sh owner=zabbix group=zabbix mode="u+rwx"
   when: zbx_send_auth_email_alerts == 1
 
-
 - name: Ensure httpd can connect to network ports
   seboolean: name=httpd_can_network_connect state=yes persistent=yes
   when: ansible_selinux.status == "enabled"

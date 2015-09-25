@@ -11,15 +11,15 @@ from email.Header import Header
 from email.Utils import formatdate
 
 # Mail Account
-MAIL_ACCOUNT = 'your.account@mail.com'
-MAIL_PASSWORD = 'your mail password'
+MAIL_ACCOUNT = '{{ mailAccount }}'
+MAIL_PASSWORD = '{{ mailPassword }}'
 
 # Sender Name
 SENDER_NAME = u'Zabbix Alert'
 
 # Mail Server
-SMTP_SERVER = 'smtp.mail.com'
-SMTP_PORT = 25
+SMTP_SERVER = '{{ smtpServer }}'
+SMTP_PORT = {{ smtpPort }}
 
 def send_mail(recipient, subject, body, encoding='utf-8'):
     session = None
